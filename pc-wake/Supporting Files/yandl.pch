@@ -1,0 +1,61 @@
+//
+//  yandl.pch
+//  yandl_patient
+//
+//  Created by YandL on 16/8/9.
+//  Copyright © 2016年 YandL. All rights reserved.
+//
+
+#ifndef yandl_pch
+#define yandl_pch
+
+#ifdef DEBUG
+#define HttpAddress(url) [NSString stringWithFormat:@"http://yandl.ticp.io:28080/APP/YandL/%@", (url)]
+#else
+#define HttpAddress(url) [NSString stringWithFormat:@"http://yandl.ticp.io:28080/APP/YandL/%@", (url)]
+#endif
+
+#define TXBYURLHostSplice 1
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import "TXBYKit.h"
+#import "TXBYConst.h"
+#import "UIImageView+WebCache.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "PadNavView.h"
+#import "SVProgressHUD.h"
+
+#define MainStoryboard [UIStoryboard storyboardWithName:@"Main" bundle:nil]
+
+#define NSEaseLocalizedString(key, comment) [[NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"EaseUIResource" withExtension:@"bundle"]] localizedStringForKey:(key) value:@"" table:nil]
+
+#define TXBYClassName NSStringFromClass(self.class)
+
+#define TXBYURLHostSplice 1
+
+#endif
+
+#define APPENCRIPT 0
+
+#define NAVHEIGHT (TXBYApplicationW * 0.118)
+#define PCINFOCACHE @"PCINFO"
+
+// 控制器背景颜色
+#define TXBYGlobalBgColor TXBYColor(239, 239, 239)
+//主颜色
+//#define ESMainColor  TXBYColor(39, 157, 103)
+#define TXBYMainColor  TXBYColor(51, 153, 204)
+
+#define TXBYSelectedColor TXBYColor(TXBYMainColor.red * 255.0 - 20, TXBYMainColor.green * 255.0 - 20, TXBYMainColor.blue * 255.0 - 20)
+
+// 通过RGB创建颜色
+#define TXBYColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+// 默认偏好设置
+//#define TXBYUserDefaults [NSUserDefaults standardUserDefaults]
+#define TXBYUserDefaults [[NSUserDefaults alloc] initWithSuiteName:@"group.yandl.test"]
+// 文件存储路径
+#define TXBYSaveDataPath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
+
+#endif /* szgjyy_pch */
